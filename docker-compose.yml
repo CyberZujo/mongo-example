@@ -1,0 +1,15 @@
+version: '2'
+services:
+    mongodb:
+      image: 'mongo:4.0'
+      container_name: 'mongo'
+      ports: 
+        - '27018:27018'
+      environment:
+        MONGO_DATA_DIR: '/data/db'
+        MONGO_LOG_DIR: '/dev/null'
+      volumes:
+        - './data/mongodb/data:/data'
+      command: 'mongod --port 27018 --smallfiles --logpath=/dev/null'
+
+    
